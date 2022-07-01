@@ -18,7 +18,7 @@ const config = {
   devServer: {
     hot: true,
     client: { overlay: false },
-    // static: path.resolve(__dirname, 'build'),
+    static: path.resolve(__dirname, 'build'),
     host: env.HOST,
     port: env.PORT,
     open: true,
@@ -111,10 +111,7 @@ const devConfig = merge(config, {
   mode: 'development',
   stats: false,
   devtool: 'inline-cheap-module-source-map',
-  plugins: [
-    new ReactRefreshPlugin(),
-    new FriendlyErrorsWebpackPlugin(),
-  ],
+  plugins: [new ReactRefreshPlugin(), new FriendlyErrorsWebpackPlugin()],
   resolve: {
     fallback: {
       querystring: require.resolve('querystring-es3'),
