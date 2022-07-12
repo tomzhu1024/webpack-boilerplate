@@ -112,7 +112,7 @@ const config = {
     alias: {
       '@': path.resolve(__dirname, 'src'),
     },
-    extensions: ['.js', '.jsx', '.ts', '.tsx', '.json', '.css', '.sass', '.scss', '.less'],
+    extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
   },
 };
 
@@ -130,6 +130,7 @@ const devConfig = merge(config, {
 
 const prodConfig = merge(config, {
   mode: 'production',
+  stats: 'errors-warnings',
   plugins: [
     new WebpackBarPlugin({
       profile: true, // Require patch to work properly.
