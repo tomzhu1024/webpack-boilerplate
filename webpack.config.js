@@ -14,6 +14,14 @@ const env = require('./utils/env');
 const isDevelopment = env.NODE_ENV === 'development';
 const isAnalyzer = env.ANALYZER === 'true';
 
+const cssLoaderOptions = {
+  modules: {
+    auto: true,
+    localIdentName: isDevelopment ? '[file]__[local]' : '[md5:hash:base64:12]',
+    exportLocalsConvention: 'dashesOnly',
+  },
+};
+
 const config = {
   devServer: {
     hot: true,
@@ -44,7 +52,7 @@ const config = {
           isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
-            options: { importLoaders: 1 },
+            options: { ...cssLoaderOptions, importLoaders: 1 },
           },
           'postcss-loader',
         ],
@@ -55,7 +63,7 @@ const config = {
           isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
-            options: { importLoaders: 2 },
+            options: { ...cssLoaderOptions, importLoaders: 2 },
           },
           'postcss-loader',
           'sass-loader',
@@ -67,7 +75,7 @@ const config = {
           isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
-            options: { importLoaders: 2 },
+            options: { ...cssLoaderOptions, importLoaders: 2 },
           },
           'postcss-loader',
           {
