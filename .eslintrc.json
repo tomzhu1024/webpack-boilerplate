@@ -4,7 +4,7 @@
     "browser": true,
     "es2021": true
   },
-  "extends": ["eslint:recommended", "plugin:react/recommended", "prettier"],
+  "extends": ["eslint:recommended", "plugin:react/recommended", "plugin:react/jsx-runtime", "prettier"],
   "parser": "@babel/eslint-parser",
   "parserOptions": {
     "ecmaFeatures": {
@@ -14,9 +14,7 @@
     "sourceType": "module"
   },
   "plugins": ["react"],
-  "rules": {
-    "react/react-in-jsx-scope": "off"
-  },
+  "rules": {},
   "settings": {
     "react": {
       "version": "detect"
@@ -28,14 +26,13 @@
       "extends": [
         "eslint:recommended",
         "plugin:react/recommended",
+        "plugin:react/jsx-runtime",
         "plugin:@typescript-eslint/recommended",
         "prettier"
       ],
       "parser": "@typescript-eslint/parser",
       "plugins": ["react", "@typescript-eslint"],
-      "rules": {
-        "react/react-in-jsx-scope": "off"
-      }
+      "rules": {}
     }
   ]
 }
